@@ -34,7 +34,8 @@ if (menuBtn && navLinks) {
 // Form interaction
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", (e) => {
+if (form) {
+  form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const nameInput = form.querySelector('input[type="text"]');
@@ -68,6 +69,7 @@ form.addEventListener("submit", (e) => {
   formMessage.style.color = "green";
   form.reset();
 });
+}
 
 // Fade-up animation
 const observer = new IntersectionObserver(
@@ -231,6 +233,9 @@ images.forEach((img) => {
 modal.addEventListener("click", () => {
   modal.style.display = "none";
 });
+
+// Track how long the user stays on the site
+const visitTime = document.getElementById("visitTime");
 
 let seconds = 0;
 

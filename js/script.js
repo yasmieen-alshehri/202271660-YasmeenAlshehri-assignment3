@@ -37,10 +37,35 @@ const form = document.getElementById("contactForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const nameInput = form.querySelector('input[type="text"]');
+  const emailInput = form.querySelector('input[type="email"]');
+  const messageInput = form.querySelector("textarea");
   const formMessage = document.getElementById("formMessage");
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!name || !email || !message) {
+    formMessage.textContent = "Please fill in all fields.";
+    formMessage.style.color = "red";
+    return;
+  }
+
+  if (!email.includes("@") || !email.includes(".")) {
+    formMessage.textContent = "Please enter a valid email address.";
+    formMessage.style.color = "red";
+    return;
+  }
+
+  if (message.length < 10) {
+    formMessage.textContent = "Message must be at least 10 characters long.";
+    formMessage.style.color = "red";
+    return;
+  }
+
   formMessage.textContent = "Message sent successfully!";
   formMessage.style.color = "green";
-
   form.reset();
 });
 

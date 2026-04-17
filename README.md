@@ -46,7 +46,9 @@ It serves as the foundation for my professional portfolio.
 ├── docs/
 │   ├── ai-usage-report.md
 │   └── technical-documentation.md
+├── .gitignore
 └── README.md
+
 ```
 
 ---

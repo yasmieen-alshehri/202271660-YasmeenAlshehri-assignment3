@@ -824,3 +824,16 @@ textarea {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
+.visit-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  background: rgba(155, 123, 189, 0.12);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}

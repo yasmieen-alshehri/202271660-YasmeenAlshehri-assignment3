@@ -181,3 +181,14 @@ images.forEach((img) => {
 modal.addEventListener("click", () => {
   modal.style.display = "none";
 });
+
+let seconds = 0;
+
+setInterval(() => {
+  seconds++;
+
+  let minutes = Math.floor(seconds / 60);
+  let secs = seconds % 60;
+
+  visitTime.textContent = `You’ve been here for ${minutes}m ${secs}s`;
+}, 1000);

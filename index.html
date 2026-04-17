@@ -96,18 +96,26 @@
         Then click <strong>View Details</strong> to learn more.
       </p>
     </div>
-    <!-- Project Filters -->
-    <div class="filter-buttons">
-      <button type="button" class="filter-btn active" data-filter="all">All</button>
-      <button type="button" class="filter-btn" data-filter="web">Web</button>
-      <button type="button" class="filter-btn" data-filter="desktop">Desktop</button>
-      <button type="button" class="filter-btn" data-filter="ai">AI/ML</button>
-      <button type="button" class="filter-btn" data-filter="uiux">UI/UX</button>
-    </div>
 
     <!-- Project Search -->
     <div class="project-search">
       <input id="projectSearch" type="text" placeholder="Search by project name or keyword..." />
+    </div>
+
+    <div class="project-controls">
+      <div class="filter-buttons">
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="web">Web</button>
+        <button type="button" class="filter-btn" data-filter="desktop">Desktop</button>
+        <button type="button" class="filter-btn" data-filter="ai">AI/ML</button>
+        <button type="button" class="filter-btn" data-filter="uiux">UI/UX</button>
+      </div>
+
+      <select id="sortProjects">
+        <option value="default">Sort By</option>
+        <option value="az">Name: A to Z</option>
+        <option value="za">Name: Z to A</option>
+      </select>
     </div>
 
     <p id="noProjectsMessage" class="empty-msg" style="display:none;">No projects found.</p>
@@ -116,7 +124,7 @@
     <div class="cards">
 
       <!-- SWE 316 Project -->
-      <article class="card project-card" data-tags="desktop">
+      <article class="card project-card" data-tags="desktop" data-name="software design and construction">
 
         <div class="project-preview">
           <img src="assets/images/swe316-map.png" class="project-thumb" alt="SWE316 project">
@@ -150,7 +158,7 @@
       </article>
 
       <!-- SWE 206 Project -->
-      <article class="card project-card" data-tags="uiux">
+      <article class="card project-card" data-tags="uiux" data-name="software engineering design project">
 
         <div class="project-preview">
           <img src="assets/images/swe206-OrgnizerDashboard.png" class="project-thumb" alt="SWE 206 project preview" />

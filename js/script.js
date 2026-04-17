@@ -69,16 +69,21 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 const noProjectsMessage = document.getElementById("noProjectsMessage");
 const projectSearch = document.getElementById("projectSearch");
+const sortProjects = document.getElementById("sortProjects");
+const cardsContainer = document.querySelector(".cards");
 
 
 function applyProjectFilters() {
   const activeBtn = document.querySelector(".filter-btn.active");
   const filter = activeBtn ? activeBtn.dataset.filter : "all";
   const query = (projectSearch?.value || "").trim().toLowerCase();
+  const sortValue = sortProjects ? sortProjects.value : "default";
 
   let visibleCount = 0;
 
-  projectCards.forEach((card) => {
+  const cardsArray = Array.from(projectCards);
+
+  cardsArray.forEach((card) => {
     const tags = (card.dataset.tags || "").split(" ");
     const text = card.textContent.toLowerCase();
 
@@ -89,6 +94,22 @@ function applyProjectFilters() {
     card.style.display = show ? "" : "none";
 
     if (show) visibleCount++;
+  });
+
+  const visibleCards = cardsArray.filter((card) => card.style.display !== "none");
+
+  if (sortValue === "az") {
+    visibleCards.sort((a, b) =>
+      a.dataset.name.localeCompare(b.dataset.name)
+    );
+  } else if (sortValue === "za") {
+    visibleCards.sort((a, b) =>
+      b.dataset.name.localeCompare(a.dataset.name)
+    );
+  }
+
+  visibleCards.forEach((card) => {
+    cardsContainer.appendChild(card);
   });
 
   if (noProjectsMessage) {
@@ -106,6 +127,10 @@ filterButtons.forEach((btn) => {
 
 if (projectSearch) {
   projectSearch.addEventListener("input", applyProjectFilters);
+}
+
+if (sortProjects) {
+  sortProjects.addEventListener("change", applyProjectFilters);
 }
 
 const detailButtons = document.querySelectorAll(".details-btn");

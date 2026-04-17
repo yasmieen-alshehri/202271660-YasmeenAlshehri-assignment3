@@ -165,3 +165,19 @@ async function loadQuote() {
 }
 
 loadQuote();
+
+// Image enlarge
+const images = document.querySelectorAll(".project-img");
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+
+images.forEach((img) => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+modal.addEventListener("click", () => {
+  modal.style.display = "none";
+});

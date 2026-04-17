@@ -409,10 +409,7 @@ main {
   line-height: 1.25;
 }
 
-#projects .card p {
-  margin-top: 6px;
-  font-size: 18px;
-  line-height: 1.8;
+#projects .card p:not(.mini-guide) {
   color: var(--muted);
 }
 
@@ -671,6 +668,30 @@ textarea {
   color: var(--muted);
   border-top: 1px solid #bda2c6;
 }
+/* =========================
+   PROJECT HOVER GUIDE
+========================= */
+.project-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-preview:hover .overlay-text {
+  opacity: 1;
+}
 
 /* =========================
    RESPONSIVE
@@ -768,4 +789,38 @@ textarea {
   #activities .card h3 {
     font-size: 18px;
   }
+}
+
+.project-img {
+  cursor: pointer;
+}
+
+.image-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.image-modal img {
+  max-width: 85%;
+  max-height: 80%;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+#projects .mini-guide {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--secondary);
+  background: rgba(155, 123, 189, 0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }

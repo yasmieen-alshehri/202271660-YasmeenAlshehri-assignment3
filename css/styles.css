@@ -815,7 +815,7 @@ textarea {
   margin-top: 40px;
 }
 
-#projects .mini-guide {
+.mini-guide {
   display: inline-block;
   font-size: 0.8rem;
   color: var(--secondary);
